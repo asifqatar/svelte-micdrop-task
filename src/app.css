@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+ 
+  input[type='range']::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 bg-white outline outline-2 outline-[#0284FE80] rounded-full cursor-grab;
+  }
+
+  input[type='range']:focus::-webkit-slider-thumb {
+    @apply outline outline-2 outline-[#0284FE80];
+  }
+
+  input[type='range']::-webkit-slider-thumb:active {
+    @apply outline outline-2 outline-[#0284FE80];
+  }
+
+  input[type=range] {
+    @apply appearance-none h-[0px] dark:border-y-[#212121] border-slate-200 border-y-2 bg-[#E6E7E9] rounded-full;
+  }
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+p {
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-theme-1);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+pre {
+  font-size: 16px;
+  font-family: var(--font-mono);
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 3px;
+  box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+  padding: 0.5em;
+  overflow-x: auto;
+  color: var(--color-text);
+}
+
+.text-column {
+  display: flex;
+  max-width: 48rem;
+  flex: 0.6;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+input,
+button {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (min-width: 720px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.datepicker-picker {
+  padding: 18px;
+  box-shadow:
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 4px 6px 0px rgba(0, 0, 0, 0.05);
+}
+
+.datepicker-controls {
+  font-size: 12px;
+  font-style: normal;
+  line-height: 18px;
+  font-weight: 700;
+  color: hsla(219, 40%, 11%, 1);
+}
+
+.dow {
+  color: hsla(220, 9%, 46%, 1);
+  font-weight: 600;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 18px;
+}
+.datepicker-cell {
+  font-size: 12px;
+  font-style: normal;
+  line-height: 18px;
+  padding: 8px 4px;
+}
+
+.button {
+	padding: 8px 12px ;
+}
+
+ input{
+    outline: none !important;
+  }
+
+/* .group:first-child .group-first\:rounded-t-xl {
+  border-top: none;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.group button, .group .border-s{
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.group:last-child .group-first\:rounded-t-xl {
+  border-bottom: none;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+} */
+
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+
+*::-webkit-scrollbar {
+  display: none; 
+}
