@@ -140,35 +140,6 @@
     { date: "Jan 19, 2020", title: "The Secrets in Your Jotter", revenue: 36 },
   ];
 
-  const sampleEvent = {
-    title: "Jetpack Comedy",
-    date: "Sept 23",
-    time: "12:30PM PST",
-    revenue: 1482,
-    performers: [
-      {
-        avatar:
-          "https://github.com/m-irfan244/micdrop-public/blob/main/images/perfromers/performer1.jpeg?raw=true",
-        name: "Performer 1",
-      },
-      {
-        avatar:
-          "https://github.com/m-irfan244/micdrop-public/blob/main/images/perfromers/performer1.jpeg?raw=true",
-        name: "Performer 2",
-      },
-      {
-        avatar:
-          "https://github.com/m-irfan244/micdrop-public/blob/main/images/perfromers/performer1.jpeg?raw=true",
-        name: "Performer 3",
-      },
-    ],
-    tickets: {
-      sold: 875,
-      total: 1023,
-    },
-    inCart: 2,
-  };
-
   const underperformingEvents = [
     {
       date: "Feb 1, 2020",
@@ -181,24 +152,6 @@
     { date: "Feb 1, 2020", title: "Whispers from Your Pages", revenue: 40 },
   ];
 
-  let attendees = [
-    {
-      id: 1,
-      attendees: {
-        attendeesid: "#0912",
-        tickno: "1",
-        purchaseData: "Fri, Jul 26, 2024",
-      },
-      orderId: "#490263029",
-      Event: "Laugh Riot",
-      orderTotal: "$48",
-      Customer: "Melissa Crew",
-      SalesChannel: "Instagram",
-      notes: "",
-      isChecked: true,
-      status: "Checked in",
-    },
-  ];
 </script>
 
 <div class="border border-gray-300 rounded-[8px] overflow-hidden">
@@ -305,12 +258,12 @@
         {/if}
 
         <div>
-          <Card title="Top Events" buttons={true}>
+          <Card title="Top Events" buttons={true} event={true}>
             <EventsProgress events={topEvents} variant="top" />
           </Card>
         </div>
         <div>
-          <Card title="Underperforming Events" buttons={true}>
+          <Card title="Underperforming Events" buttons={true} event={true}>
             <EventsProgress
               events={underperformingEvents}
               variant="underperforming"

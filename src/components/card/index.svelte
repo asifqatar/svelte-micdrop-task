@@ -6,6 +6,7 @@
   export let link: string = "";
   export let linkText: string = "See all";
   export let buttons: boolean = false;
+  export let event: boolean = false;
 </script>
 
 <div
@@ -14,9 +15,15 @@
   <div class="flex justify-between items-start flex-wrap gap-2">
     <div>
       <h2
-        class="lg:font-normal lg:text-xl lg:leading-[30px] font-base font-medium leading-[24px]"
+        class="lg:font-normal lg:text-xl lg:leading-[30px] font-base font-medium leading-[24px] w-[200px]"
       >
-        {title}
+        <span
+          class={event
+            ? "w-[150px]"
+            : ""}
+        >
+          {title}
+        </span>
       </h2>
       {#if subtitle}
         <p class="text-xs leading-[18px] text-gray-500 lg:block hidden">
@@ -36,11 +43,11 @@
         </div>
       </div>
     {/if}
-      {#if buttons}
+    {#if buttons}
       <div>
         <ToggleButtons />
       </div>
-      {/if}
+    {/if}
   </div>
   <slot />
 </div>
