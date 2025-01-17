@@ -223,7 +223,7 @@
         <div>
           <Card title="Upcoming events" linkText="See all" link="/">
             {#if loading}
-              <div>loading ....</div>
+              <div>loading ...</div>
             {:else}
               <div class="lg:block hidden">
                 <Table
