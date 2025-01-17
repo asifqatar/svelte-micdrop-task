@@ -1,0 +1,23 @@
+import { c as create_ssr_component, f as createEventDispatcher, e as escape } from "./ssr.js";
+const css = {
+  code: ".dropdown-menu.svelte-au1hd9{width:-moz-fit-content;width:fit-content;max-height:200px;overflow-y:auto;font-size:11px}.dropdown-menu.svelte-au1hd9::-webkit-scrollbar{display:none}",
+  map: '{"version":3,"file":"CustomDropdown.svelte","sources":["CustomDropdown.svelte"],"sourcesContent":["<script lang=\\"ts\\">import { createEventDispatcher, onMount } from \\"svelte\\";\\nexport let options = [];\\nexport let selected = null;\\nexport let placeholder = \\"Select\\";\\nconst dispatcher = createEventDispatcher();\\nlet isOpen = false;\\nconst toggleDropdown = () => {\\n  isOpen = !isOpen;\\n};\\nconst selectOption = (option) => {\\n  selected = option;\\n  dispatcher(\\"select\\", option);\\n  isOpen = false;\\n};\\nconst handleOutsideClick = (event) => {\\n  if (event.target instanceof HTMLElement && !event.target.closest(\\".dropdown\\")) {\\n    isOpen = false;\\n  }\\n};\\nonMount(() => {\\n  if (window) {\\n    window.addEventListener(\\"click\\", handleOutsideClick);\\n  }\\n});\\nconst capitalise = (value) => {\\n  if (value.length > 1)\\n    return value.charAt(0).toUpperCase() + \\"\\" + value.slice(1);\\n  else return value;\\n};\\n<\/script>\\n\\n<div class=\\"dropdown relative text-xs\\">\\n  <button\\n    class=\\"btn flex px-2 lg:px-4 py-2 text-left bg-white text-black border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500\\"\\n    on:click|preventDefault={toggleDropdown}\\n  >\\n    {#if selected}\\n      <span class=\\"my-auto\\">\\n        {selected.label || capitalise(selected)}\\n      </span>\\n    {:else}\\n      <span class=\\"my-auto \\">\\n        {placeholder}\\n      </span>\\n    {/if}\\n    <!-- Dropdown icon -->\\n    <svg\\n      class=\\"my-auto lg:ml-4\\"\\n      width=\\"25\\"\\n      height=\\"24\\"\\n      viewBox=\\"0 0 25 24\\"\\n      fill=\\"none\\"\\n      xmlns=\\"http://www.w3.org/2000/svg\\"\\n    >\\n      <path\\n        d=\\"M6.5 9C6.5 9 10.9189 15 12.5 15C14.0812 15 18.5 9 18.5 9\\"\\n        stroke=\\"#0D1526\\"\\n        stroke-width=\\"1.5\\"\\n        stroke-linecap=\\"round\\"\\n        stroke-linejoin=\\"round\\"\\n      />\\n    </svg>\\n  </button>\\n\\n  {#if isOpen}\\n    <div\\n      class=\\"dropdown-menu flex flex-col absolute mt-1 bg-white border rounded-md shadow-lg z-10\\"\\n    >\\n      {#each options as option}\\n        <button\\n          class=\\"w-full text-left px-4 py-2 cursor-pointer text-black hover:bg-gray-100\\"\\n          on:click|preventDefault={() => selectOption(option)}\\n        >\\n          {option.label}\\n        </button>\\n      {/each}\\n    </div>\\n  {/if}\\n</div>\\n\\n<style>\\n  /* Optional styling for scrollable dropdowns */\\n\\n  .dropdown-menu {\\n    width: -moz-fit-content;\\n    width: fit-content;\\n    max-height: 200px;\\n    overflow-y: auto;\\n    font-size: 11px;\\n  }\\n\\n  .dropdown-menu::-webkit-scrollbar {\\n    display: none;\\n  }\\n</style>\\n"],"names":[],"mappings":"AAmFE,4BAAe,CACb,KAAK,CAAE,gBAAgB,CACvB,KAAK,CAAE,WAAW,CAClB,UAAU,CAAE,KAAK,CACjB,UAAU,CAAE,IAAI,CAChB,SAAS,CAAE,IACb,CAEA,4BAAc,mBAAoB,CAChC,OAAO,CAAE,IACX"}'
+};
+const CustomDropdown = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { options = [] } = $$props;
+  let { selected = null } = $$props;
+  let { placeholder = "Select" } = $$props;
+  createEventDispatcher();
+  const capitalise = (value) => {
+    if (value.length > 1) return value.charAt(0).toUpperCase() + "" + value.slice(1);
+    else return value;
+  };
+  if ($$props.options === void 0 && $$bindings.options && options !== void 0) $$bindings.options(options);
+  if ($$props.selected === void 0 && $$bindings.selected && selected !== void 0) $$bindings.selected(selected);
+  if ($$props.placeholder === void 0 && $$bindings.placeholder && placeholder !== void 0) $$bindings.placeholder(placeholder);
+  $$result.css.add(css);
+  return `<div class="dropdown relative text-xs"><button class="btn flex px-2 lg:px-4 py-2 text-left bg-white text-black border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">${selected ? `<span class="my-auto">${escape(selected.label || capitalise(selected))}</span>` : `<span class="my-auto ">${escape(placeholder)}</span>`}  <svg class="my-auto lg:ml-4" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 9C6.5 9 10.9189 15 12.5 15C14.0812 15 18.5 9 18.5 9" stroke="#0D1526" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button> ${``} </div>`;
+});
+export {
+  CustomDropdown as C
+};

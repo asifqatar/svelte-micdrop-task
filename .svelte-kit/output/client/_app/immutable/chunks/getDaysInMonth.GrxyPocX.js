@@ -1,0 +1,1 @@
+import{t as n}from"./toDate.qOSwr3PX.js";import{c as r}from"./constructFrom.DWjd9ymD.js";function f(o){const t=n(o);return t.setDate(1),t.setHours(0,0,0,0),t}function g(o){return n(o).getDay()}function y(o){const t=n(o),a=t.getFullYear(),s=t.getMonth(),e=r(o,0);return e.setFullYear(a,s+1,0),e.setHours(0,0,0,0),e.getDate()}export{g as a,y as g,f as s};
