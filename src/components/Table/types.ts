@@ -19,6 +19,7 @@ export interface TableProps {
   keyField?: string
   searchable?: boolean
   itemsPerPage?: number
+  isResizable?: boolean
   paginated?: {
     status: boolean
     totalPages: string | number

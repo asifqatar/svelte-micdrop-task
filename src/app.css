@@ -161,13 +161,3 @@ button:focus:not(:focus-visible) {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
 } */
-
-
-* {
-  scrollbar-width: none;
-  -ms-overflow-style: none; 
-}
-
-*::-webkit-scrollbar {
-  display: none; 
-}

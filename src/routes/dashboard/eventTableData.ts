@@ -79,14 +79,14 @@ export const upComingEventsTableColumn = [
                   <img 
                     src=${img}
                     alt="${performer.name}" 
-                    class="w-8 h-8 rounded-full border-2 border-white" 
+                    class="w-6 h-6 rounded-full border-2 border-white" 
                   />
                 `;
               })
               .join("")}
             ${
               remainingCount > 0
-                ? `<div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 font-semibold border-2 border-white text-sm">
+                ? `<div class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 font-semibold border-2 border-white text-[10px]">
                     +${remainingCount}
                   </div>
                   `

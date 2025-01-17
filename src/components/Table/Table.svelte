@@ -34,6 +34,7 @@
   export let showTableHead: TableProps["showTableHead"] = true;
   export let actionsContent: TableProps["actionContent"] = null;
   export let styles: TableProps["styles"] = {};
+  export let isResizable: TableProps["isResizable"] = false;
 
   // Variables to handle device screen sizes
   let isMobile = false;
@@ -119,7 +120,7 @@
 
 <div
   class={cn(
-    `inline-flex flex-col justify-center items-center bg-white`,
+    `justify-center items-center bg-white`,
     {
       "p-3 rounded-md ": isRounded,
     },
@@ -146,9 +147,11 @@
         theadStyle={styles.thead}
         thStyle={styles.th}
         {isDraggable}
+        {isResizable}
         {bordered}
         columns={filteredColumns}
         {selectAll}
+        
         {sortData}
         {toggleSelectAll}
         {hasActions}

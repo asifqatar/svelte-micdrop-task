@@ -16,7 +16,7 @@ export const OrderTableColumns = [
     sortable: false,
     customRender: (value) => {
       return `<div>
-        <span class="text-Text-Secondary font-normal text-sm md:pr-4">${value}</span>
+        <span class="text-gray-500 font-normal text-sm md:pr-4">${value}</span>
       </div>`;
     },
   },
@@ -27,7 +27,7 @@ export const OrderTableColumns = [
     customRender: (value) => {
       return `<div class="flex items-center gap-6">
       <img src="${value.image}" alt="${value.name}" class="w-8 h-8 rounded-md" />
-      <span class="text-Text-Secondary font-normal text-sm md:pr-4">${value.name}</span>
+      <span class="text-gray-500  font-normal text-sm md:pr-4">${value.name}</span>
     </div>`;
     },
   },
@@ -37,7 +37,7 @@ export const OrderTableColumns = [
     sortable: false,
     customRender: (value) => {
       return `<div>
-      <span class="text-Text-Secondary font-normal text-sm md:pr-4">${value}</span>
+      <span class="text-gray-500  font-normal text-sm md:pr-4">${value}</span>
     </div>`;
     },
   },
@@ -47,7 +47,7 @@ export const OrderTableColumns = [
     sortable: false,
     customRender: (value) => {
       return `<div>
-      <span class="text-Text-Secondary font-normal text-sm md:pr-4">${value}</span>
+      <span class="text-gray-500  font-normal text-sm md:pr-4">${value}</span>
     </div>`;
     },
   },
@@ -58,7 +58,7 @@ export const OrderTableColumns = [
     customRender: (value) => {
       return  `<div class="flex items-center gap-6">
       <img src="${value.image}" alt="${value.name}" class="w-4 h-4 rounded-md" />
-      <span class="text-Text-Secondary font-normal text-sm md:pr-4">${value.name}</span>
+      <span class="text-gray-500  font-normal text-sm md:pr-4">${value.name}</span>
     </div>`;
     },
   },

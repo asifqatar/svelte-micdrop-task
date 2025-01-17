@@ -7,6 +7,7 @@
   export let linkText: string = "See all";
   export let buttons: boolean = false;
   export let event: boolean = false;
+  export let progress: boolean = false;
 </script>
 
 <div
@@ -15,18 +16,16 @@
   <div class="flex justify-between items-start flex-wrap gap-2">
     <div>
       <h2
-        class="lg:font-normal lg:text-xl lg:leading-[30px] font-base font-medium leading-[24px] w-[200px]"
+        class="lg:font-normal lg:text-xl lg:leading-[30px] font-base font-medium leading-[24px] {event &&
+        progress
+          ? 'w-[200px]'
+          : ''}"
       >
-        <span
-          class={event
-            ? "w-[150px]"
-            : ""}
-        >
-          {title}
-        </span>
+        {title}
       </h2>
+
       {#if subtitle}
-        <p class="text-xs leading-[18px] text-gray-500 lg:block hidden">
+        <p class="text-xs leading-[18px] text-gray-500">
           {subtitle}
         </p>
       {/if}

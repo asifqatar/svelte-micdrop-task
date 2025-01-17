@@ -9,11 +9,11 @@
   <div class="bg-white rounded-[16px] p-6 flex items-center justify-between stat">
     <div class="flex items-center">
       <div class="mr-3">
-        <img src={stat.icon || "/placeholder.svg"} alt="" />
+        <img src={stat.icon} alt="" class="w-full h-full" />
       </div>
       <div>
-        <p class="text-[16px] font-normal text-Text-Tertiary">{stat.name}</p>
-        <p class="text-2xl font-normal text-Text-Secondary">
+        <p class="text-[16px] font-normal text-[#666C79] leading-[16px]">{stat.name}</p>
+        <p class="text-2xl font-normal text-[#252B37] mt-1">
           {stat.value}
           {#if stat.cents}
             <span class="text-sm align-super">{stat.cents}</span>

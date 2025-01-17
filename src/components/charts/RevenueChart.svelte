@@ -1,136 +1,112 @@
 <script>
-    import { onMount } from 'svelte';
-    import { Chart, LineController, LineElement, PointElement, LinearScale, CategoryScale, Legend, Tooltip } from 'chart.js';
-    
-    Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, Legend, Tooltip);
-    
-    let chartCanvas;
-    let chart;
-    
-    onMount(() => {
-      const ctx = chartCanvas.getContext('2d');
-      
-      chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['01 Jan', '05 Jan', '07 Jan', '10 Jan', '15 Jan', '17 Jan', '20 Jan', '25 Jan', '27 Jan', '29 Jan', '31 Jan'],
-          datasets: [
-            {
-              label: 'Total Revenue',
-              data: [5000, 10000, 8000, 25000, 3000, 13000, 4000, 3000, 15000, 11000, 20000],
-              borderColor: '#3F83F8',
-              backgroundColor: '#3F83F8',
-              tension: 0,
-              borderWidth: 2,
-              pointRadius: 0,
-              pointHoverRadius: 4,
-            },
-            {
-              label: 'Previous Period',
-              data: [4000, 2500, 2500, 2500, 11000, 4000, 4000, 7000, 12000, 3000, 7000],
-              borderColor: '#3F83F8',
-              borderDash: [5, 5],
-              tension: 0,
-              borderWidth: 2,
-              pointRadius: 0,
-              pointHoverRadius: 4,
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          interaction: {
-            intersect: false,
-            mode: 'index',
-          },
-          scales: {
-            x: {
-              grid: {
-                display: false,
-              },
-              ticks: {
-                font: {
-                  size: 12,
-                },
-                color: '#6B7280',
-              },
-            },
-            y: {
-              position: 'left',
-              border: {
-                display: false,
-              },
-              grid: {
-                color: '#E5E7EB',
-              },
-              ticks: {
-                stepSize: 25000,
-                font: {
-                  size: 12,
-                },
-                color: '#6B7280',
-                callback: function(value) {
-                  return '$' + value.toLocaleString();
-                },
-              },
-              min: 0,
-              max: 100000,
-            }
-          },
-          plugins: {
-            legend: {
-              display: true,
-              position: 'bottom',
-              align: 'start',
-              labels: {
-                usePointStyle: false, // Removed point style
-                boxWidth: 40, // Width of the line in the legend
-                padding: 20,
-                font: {
-                  size: 12,
-                },
-                color: 'red',
-                generateLabels: function(chart) {
-                  const datasets = chart.data.datasets;
-                  return datasets.map((dataset, i) => ({
-                    text: dataset.label,
-                    lineDash: dataset.borderDash,
-                    strokeStyle: dataset.borderColor,
-                    fillStyle: dataset.borderColor,
-                    lineWidth: 2,
-                    hidden: !chart.isDatasetVisible(i),
-                    datasetIndex: i
-                  }));
-                }
-              }
-            },
-            tooltip: {
-              backgroundColor: 'white',
-              titleColor: '#111827',
-              bodyColor: '#111827',
-              bodyFont: {
-                size: 12,
-              },
-              padding: 12,
-              borderColor: '#E5E7EB',
-              borderWidth: 1,
-              callbacks: {
-                label: function(context) {
-                  return context.dataset.label + ': $' + context.parsed.y.toLocaleString();
-                }
-              }
-            }
-          }
-        }
-      });
-      
-      return () => {
-        chart.destroy();
-      };
-    });
-  </script>
-  
-  <div class="w-full h-[397px] bg-white">
-    <canvas bind:this={chartCanvas}></canvas>
+  import { scaleTime, scaleOrdinal } from "d3-scale";
+  import { format as formatDate } from "date-fns";
+  import { Chart, Svg, Axis, Spline, Highlight, Tooltip } from "layerchart";
+
+  const data = [
+    { date: new Date(2024, 6, 1), value: 1000, category: "Total Revenue" },
+    { date: new Date(2024, 7, 1), value: 2000, category: "Total Revenue" },
+    { date: new Date(2024, 8, 1), value: 1500, category: "Total Revenue" },
+    { date: new Date(2024, 9, 1), value: 3000, category: "Total Revenue" },
+    { date: new Date(2024, 10, 1), value: 2500, category: "Total Revenue" },
+    { date: new Date(2024, 11, 1), value: 4000, category: "Total Revenue" },
+    { date: new Date(2025, 0, 1), value: 5000, category: "Total Revenue" },
+    { date: new Date(2024, 6, 1), value: 3000, category: "Previous Period" },
+    { date: new Date(2024, 7, 1), value: 1000, category: "Previous Period" },
+    { date: new Date(2024, 8, 1), value: 2000, category: "Previous Period" },
+    { date: new Date(2024, 9, 1), value: 2800, category: "Previous Period" },
+    { date: new Date(2024, 10, 1), value: 3200, category: "Previous Period" },
+    { date: new Date(2024, 11, 1), value: 2500, category: "Previous Period" },
+    { date: new Date(2025, 0, 1), value: 2000, category: "Previous Period" },
+  ];
+
+  const dataByCategory = Object.entries(
+    data.reduce((acc, d) => {
+      if (!acc[d.category]) acc[d.category] = [];
+      acc[d.category].push(d);
+      return acc;
+    }, {})
+  );
+
+  const categoryColors = {
+    "Total Revenue": "#3F83F8",
+    "Previous Period": "#3F83F8",
+  };
+</script>
+
+<div class="h-[300px] pl-10 pr-5 pt-4">
+  <Chart
+    {data}
+    x="date"
+    xScale={scaleTime()}
+    y="value"
+    yDomain={[0, null]}
+    yNice
+    c="category"
+    cScale={scaleOrdinal()}
+    cDomain={Object.keys(categoryColors)}
+    cRange={Object.values(categoryColors)}
+    tooltip={{ mode: "voronoi" }}
+    let:cScale
+  >
+    <Svg>
+      <Axis
+        placement="left"
+        grid
+        format={(d) => `$${d.toLocaleString()}`}
+        stroke="#333"
+        gridStroke="#e2e8f0"
+        strokeWidth={1}
+        gridStrokeWidth={1}
+        baseline={true}
+        baselineStroke="#333"
+        baselineStrokeWidth={1}
+      />
+      <Axis
+        placement="bottom"
+        format={(d) => formatDate(d, "MMM yyyy")}
+        grid
+        stroke="#333"
+        gridStroke="#e2e8f0"
+        strokeWidth={1}
+        gridStrokeWidth={1}
+        baseline={true}
+        baselineStroke="#333"
+        baselineStrokeWidth={1}
+      />
+      {#each dataByCategory as [category, data]}
+        {@const color = cScale?.(category)}
+        <Spline
+          {data}
+          stroke={color}
+          class="stroke-[2]"
+          style="stroke-dasharray: {category === 'Previous Period'
+            ? '4,4'
+            : 'none'}"
+        />
+      {/each}
+      <Highlight points lines />
+    </Svg>
+
+    <Tooltip.Root let:data>
+      <Tooltip.Header>{formatDate(data.date, "MMM yyyy")}</Tooltip.Header>
+      <Tooltip.List>
+        <Tooltip.Item
+          label={data.category}
+          value={`$${data.value.toLocaleString()}`}
+        />
+      </Tooltip.List>
+    </Tooltip.Root>
+  </Chart>
+</div>
+
+<div class="flex items-center space-x-3 pt-8">
+  <div class="flex items-center space-x-1">
+    <div class="w-5 h-[2px] bg-[#3F83F8]"></div>
+    <p class="text-gray-500 font-medium text-xs">Total Revenue</p>
   </div>
+  <div class="flex items-center space-x-1">
+    <div class="w-5 border-t-2 border-dashed border-[#3F83F8]"></div>
+    <p class="text-gray-500 font-medium text-xs">Previous Period</p>
+  </div>
+</div>

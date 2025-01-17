@@ -10,8 +10,8 @@
   import EventsProgress from "@/components/Events/EventsProgress.svelte";
   import EventCard from "@/components/card/eventCard.svelte";
   import OrderCard from "@/components/card/orderCard.svelte";
-  import MonthSelector from "@/components/Button/MonthSelector.svelte";
-  import Export from "@/components/Button/Export.svelte";
+  import MonthSelectorButton from "@/components/Button/MonthSelector.svelte";
+  import ExportButton from "@/components/Button/Export.svelte";
 
   let notifications = [];
 
@@ -155,7 +155,7 @@
   ];
 </script>
 
-<div class="border border-gray-300 rounded-[8px] overflow-hidden">
+<div class="lg:border lg:border-gray-300 rounded-[8px] overflow-hidden">
   <div>
     <div class="py-2 px-4">
       <div class="">
@@ -170,8 +170,8 @@
       </div>
       <div class="lg:hidden block">
         <div class="flex justify-end gap-2 pt-2 pb-1">
-          <MonthSelector />
-          <Export />
+          <MonthSelectorButton />
+          <ExportButton />
         </div>
       </div>
     </div>
@@ -196,7 +196,7 @@
                   isRounded={false}
                   searchable={false}
                   styles={{
-                    container: "w-full align-left",
+                    container: "w-full align-left overflow-y-hidden overflow-x-scroll",
                     thead:
                       "text-[14px] text-[#666C79] font-[400] !px-6 leading-[14px]",
                     tr: "text-[34px] text-gray-500 leading-[21px]  border-b border-gray-200",
@@ -206,7 +206,6 @@
                   hasCheckBox={false}
                   keyField="date"
                   hasActions={false}
-                  mobileView={true}
                 />
               </div>
               <div class="lg:hidden">
@@ -238,14 +237,15 @@
                   isRounded={false}
                   isDraggable={false}
                   searchable={false}
+                  screenSize={false}
                   styles={{
                     container:
-                      "w-full align-left whitespace-nowrap overflow-y-hidden overflow-x-scroll",
+                      "w-full align-left overflow-y-hidden overflow-x-scroll whitespace-nowrap",
                     thead:
-                      "text-xs font-semibold leading-[18px] text-gray-500 border-b border-gray-200  uppercase bg-gray-50 px-4 py-4 cursor-normal",
-                    tr: "text-sm text-gray-400 font-normal leading-[21px]",
-                    td: "text-sm border-b border-gray-200 !pr-0 ",
-                    th: "pr-0",
+                      "text-[12px] leading-[18px] text-gray-500 border-b font-semibold border-gray-200 uppercase bg-gray-50 px-4 py-4 cursor-normal ",
+                    tr: "text-[14px] text-gray-500 font-medium leading-[21px]",
+                    td: "py-2 border-b border-gray-200",
+                    th: "!pr-0",
                   }}
                   keyField="id"
                 />
@@ -265,14 +265,13 @@
             <Notification {notifications} />
           </div>
         {/if}
-
         <div>
-          <Card title="Top Events" buttons={true} event={true}>
+          <Card title="Top Events" buttons={true} event={true} progress={true}>
             <EventsProgress events={topEvents} variant="top" />
           </Card>
         </div>
         <div>
-          <Card title="Underperforming Events" buttons={true} event={true}>
+          <Card title="Underperforming Events" buttons={true} event={true} progress={true}>
             <EventsProgress
               events={underperformingEvents}
               variant="underperforming"

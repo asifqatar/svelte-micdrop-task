@@ -18,6 +18,8 @@
   export let toggleSelectAll;
   export let mobileView = [];
   export let screenSize: TableProps["screenSize"];
+  export let isResizable: TableProps["isResizable"];
+
 
   let table;
 
@@ -72,7 +74,9 @@
 
   onMount(() => {
     if (columns && columns.length > 0) {
-      initializeTable();
+      if (isResizable) {
+        initializeTable();
+      }
     }
   });
 
