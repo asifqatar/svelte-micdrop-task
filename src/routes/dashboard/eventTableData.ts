@@ -1,3 +1,5 @@
+import img from "../../assets/images/Avatar1.png"
+
 export const upComingEventsTableColumn = [
     {
       key: "date",
@@ -75,7 +77,7 @@ export const upComingEventsTableColumn = [
               .map((performer) => {
                 return `
                   <img 
-                    src="src/assets/images/Avatar1.png" 
+                    src=${img}
                     alt="${performer.name}" 
                     class="w-8 h-8 rounded-full border-2 border-white" 
                   />

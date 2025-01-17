@@ -51,6 +51,7 @@
 
   let loading = true;
   let loadingOrder = true;
+  let loadingNotification = true;
 
   async function loadUpcomingEvent() {
     try {
@@ -91,7 +92,7 @@
         status: notification.status,
       }));
 
-      loading = false;
+      loadingNotification = false;
     } catch (error) {
       console.error("Failed to load notifications:", error);
     }
@@ -100,10 +101,9 @@
   async function getTransferAll() {
     try {
       const fetchedEvents = await fetch("./api/getOrders").then((res) => {
-        loadingOrder = false;
         return res.json();
       });
-      console.log("fetchedEvents", fetchedEvents);
+      loadingOrder = false;
       events = [...fetchedEvents];
     } catch (error) {
       loadingOrder = false;
@@ -218,8 +218,8 @@
         </div>
         <div>
           <Card title="Recent Orders" linkText="See all" link="/">
-            {#if filteredEvents?.length === 0}
-              <div class="text-center text-gray-500 py-4">No events found.</div>
+            {#if loadingOrder}
+              <div class="text-center text-gray-500 py-4">Loading...</div>
             {:else}
               <div class="lg:block hidden">
                 <Table
@@ -249,7 +249,7 @@
         </div>
       </div>
       <div class="flex flex-col gap-4 lg:col-span-4">
-        {#if loading}
+        {#if loadingNotification}
           <div>loading ....</div>
         {:else}
           <div>
