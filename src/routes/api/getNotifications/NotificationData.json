@@ -2,7 +2,7 @@
   "notifications": [
     {
       "id": "1",
-      "profile_image": "src/assets/images/Avatar1.png",
+      "profile_image": "src/assets/svg/Avatar.svg",
       "user_name": "Grace Lusk",
       "action_text": "confirmed for",
       "show_name": "Jest Quest",
@@ -13,7 +13,7 @@
     },
     {
       "id": "2",
-      "profile_image": "src/assets/images/Avatar1.png",
+      "profile_image": "src/assets/svg/Avatar.svg",
       "user_name": "Andy Peters",
       "action_text": "declined for",
       "show_name": "Jest Quest",
@@ -24,7 +24,7 @@
     },
     {
       "id": "3",
-      "profile_image": "src/assets/images/Avatar1.png",
+      "profile_image": "src/assets/svg/Avatar.svg",
       "user_name": "All Performers",
       "action_text": "confirmed for",
       "show_name": "Jest Quest",
@@ -35,7 +35,7 @@
     },
     {
       "id": "4",
-      "profile_image": "src/assets/images/Avatar1.png",
+      "profile_image": "src/assets/svg/Avatar.svg",
       "user_name": "Jest Quest",
       "action_text": "has been published",
       "status": "event is now published",
@@ -45,7 +45,7 @@
     },
     {
       "id": "5",
-      "profile_image": "src/assets/images/Avatar1.png",
+      "profile_image": "src/assets/svg/Avatar.svg",
       "user_name": "Jest Quest",
       "action_text": "Jetpack Comedy is sold out",
       "status": "show sold out",
@@ -55,7 +55,7 @@
     },
     {
       "id": "6",
-      "profile_image": "src/assets/images/Avatar1.png",
+      "profile_image": "src/assets/svg/Avatar.svg",
       "user_name": "The Jetpack Comedy Show",
       "action_text": "just sold out",
       "status": "show sold out",
@@ -65,7 +65,7 @@
     },
     {
       "id": "7",
-      "profile_image": "src/assets/images/Avatar1.png",
+      "profile_image": "src/assets/svg/Avatar.svg",
       "user_name": "6 VIP tickets",
       "action_text": "sold for",
       "show_name": "The Black Lady Sketch Show",

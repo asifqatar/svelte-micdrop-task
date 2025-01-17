@@ -10,6 +10,8 @@
   import EventsProgress from "@/components/Events/EventsProgress.svelte";
   import EventCard from "@/components/card/eventCard.svelte";
   import OrderCard from "@/components/card/orderCard.svelte";
+  import MonthSelector from "@/components/Button/MonthSelector.svelte";
+  import Export from "@/components/Button/Export.svelte";
 
   let notifications = [];
 
@@ -151,20 +153,27 @@
     { date: "Jan 19, 2020", title: "The Secrets in Your Jotter", revenue: 36 },
     { date: "Feb 1, 2020", title: "Whispers from Your Pages", revenue: 40 },
   ];
-
 </script>
 
 <div class="border border-gray-300 rounded-[8px] overflow-hidden">
   <div>
     <div class="py-2 px-4">
-      <h2
-        class="lg:font-normal lg:text-xl lg:leading-[30px] font-base font-medium leading-[24px]"
-      >
-        Dashboard
-      </h2>
-      <p class="text-xs leading-[18px] text-gray-500 lg:block hidden">
-        Last 30 days
-      </p>
+      <div class="">
+        <h2
+          class="lg:font-normal lg:text-xl lg:leading-[30px] font-base font-medium leading-[24px]"
+        >
+          Dashboard
+        </h2>
+        <p class="text-xs leading-[18px] text-gray-500 lg:block hidden">
+          Last 30 days
+        </p>
+      </div>
+      <div class="lg:hidden block">
+        <div class="flex justify-end gap-2 pt-2 pb-1">
+          <MonthSelector />
+          <Export />
+        </div>
+      </div>
     </div>
     <div
       class="grid grid-cols-1 lg:grid-cols-12 gap-4 p-4 border-t border-gray-300 bg-gray-50"
