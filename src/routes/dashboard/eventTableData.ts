@@ -6,7 +6,6 @@ export const upComingEventsTableColumn = [
       title: "",
       sortable: false,
       customRender: (value) => {
-        console.log(value, 'valuevaluevalue')
         const dateObj = new Date(value);
         const day = dateObj
           .toLocaleDateString("en-US", { weekday: "short" })

@@ -1,4 +1,5 @@
 <script>
+    import Img from "@/assets/images/Avatar1.png"
     export let events;
   
     function getBarColor(percentage) {
@@ -35,7 +36,7 @@
           <div class="flex -space-x-2 mt-2">
             {#each event.performers.slice(0, 2) as performer, i}
               <img
-                src={performer.image || "/placeholder.svg"}
+                src={Img}
                 alt={performer.name}
                 class="w-6 h-6 rounded-full border-2 border-white"
                 style="z-index: {event.performers.length - i}"

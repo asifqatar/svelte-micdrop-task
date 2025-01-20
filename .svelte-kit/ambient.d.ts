@@ -55,7 +55,6 @@ declare module '$env/static/private' {
 	export const USER_ZDOTDIR: string;
 	export const __CFBundleIdentifier: string;
 	export const npm_command: string;
-	export const npm_config_preview: string;
 	export const PWD: string;
 	export const npm_lifecycle_event: string;
 	export const EDITOR: string;
@@ -142,7 +141,6 @@ declare module '$env/dynamic/private' {
 		USER_ZDOTDIR: string;
 		__CFBundleIdentifier: string;
 		npm_command: string;
-		npm_config_preview: string;
 		PWD: string;
 		npm_lifecycle_event: string;
 		EDITOR: string;

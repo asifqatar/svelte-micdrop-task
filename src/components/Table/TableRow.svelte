@@ -90,7 +90,6 @@
       swipeFunc(element, parentElement);
     });
   });
-  console.log(mobileView, 'mobileView')
 </script>
 
 <tr
