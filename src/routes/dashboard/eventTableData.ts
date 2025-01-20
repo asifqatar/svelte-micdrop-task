@@ -38,7 +38,6 @@ export const upComingEventsTableColumn = [
           <span class="text-[#0284FE] text-[12px] leading-[16px] font-normal cursor-pointer">
           Event series
           </span>
-          
           </div>
           ` 
           : '';
@@ -52,7 +51,7 @@ export const upComingEventsTableColumn = [
               <span class="text-gray-400 text-[12px] text-left leading-[16px] font-normal">
                 ${value.showTime}
               </span>
-              ${moreEventsLink} <!-- Render the link for series -->
+              ${moreEventsLink} 
             </div>
           </div>
         `;
