@@ -54,8 +54,8 @@
   );
 
   const categoryColors = {
-    "Total Revenue": "#2563EB",
-    "Previous Period": "#2563EB",
+    "Total Revenue": "#3F83F8",
+    "Previous Period": "#3F83F8",
   };
 </script>
 
