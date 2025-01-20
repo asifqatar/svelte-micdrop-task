@@ -12,6 +12,9 @@
   import OrderCard from "@/components/card/orderCard.svelte";
   import MonthSelectorButton from "@/components/Button/MonthSelector.svelte";
   import ExportButton from "@/components/Button/Export.svelte";
+  import RevenueSvg from "@/assets/svg/dollar.svg";
+  import TicketVg from "@/assets/svg/dollar.svg";
+  import EventsSvg from "@/assets/svg/ticket.svg";
 
   let notifications = [];
 
@@ -31,20 +34,20 @@
     {
       name: "Revenue",
       value: "$6,397",
-      icon: "src/assets/svg/dollar.svg",
+      icon: RevenueSvg,
       percentage: 3,
     },
     {
       name: "Ticket Sales",
       value: "843",
-      icon: "src/assets/svg/ticket.svg",
+      icon: TicketVg,
       percentage: 1,
     },
     {
       name: "Total events",
       value: "36",
-      icon: "src/assets/svg/event.svg",
-      percentage:12,
+      icon: EventsSvg,
+      percentage: 12,
     },
   ];
 
