@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createTableStore } from "./../../stores/tableStore";
+  import { createTableStore } from "../../stores/createTableStore";
   import { onDestroy, onMount } from "svelte";
   import type { Writable } from "svelte/store";
   import { writable } from "svelte/store";

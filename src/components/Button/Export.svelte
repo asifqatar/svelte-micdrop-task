@@ -6,7 +6,11 @@
 <button
   class="flex items-center justify-evenly rounded-[8px] bg-[#1A56DB] text-white text-sm font-medium w-[109px] h-[37px]"
 >
-  <img src={exportIcon} alt="export" />
+  <div>
+    <img src={exportIcon} alt="export" />
+  </div>
   Export
-  <img src={downIcon} alt="export" />
+  <div>
+    <img src={downIcon} alt="export" />
+  </div>
 </button>

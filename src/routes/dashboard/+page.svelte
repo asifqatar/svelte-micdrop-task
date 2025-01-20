@@ -32,19 +32,19 @@
       name: "Revenue",
       value: "$6,397",
       icon: "src/assets/svg/dollar.svg",
-      percentage: 8,
+      percentage: 3,
     },
     {
       name: "Ticket Sales",
-      value: "100",
+      value: "843",
       icon: "src/assets/svg/ticket.svg",
       percentage: 1,
     },
     {
       name: "Total events",
-      value: "100",
+      value: "36",
       icon: "src/assets/svg/event.svg",
-      percentage: 11,
+      percentage:12,
     },
   ];
 
@@ -196,7 +196,8 @@
                   isRounded={false}
                   searchable={false}
                   styles={{
-                    container: "w-full align-left overflow-y-hidden overflow-x-scroll",
+                    container:
+                      "w-full align-left overflow-y-hidden overflow-x-scroll",
                     thead:
                       "text-[14px] text-[#666C79] font-[400] !px-6 leading-[14px]",
                     tr: "text-[34px] text-gray-500 leading-[21px]  border-b border-gray-200",
@@ -243,9 +244,9 @@
                       "w-full align-left overflow-y-hidden overflow-x-scroll whitespace-nowrap",
                     thead:
                       "text-[12px] leading-[18px] text-gray-500 border-b font-semibold border-gray-200 uppercase bg-gray-50 px-4 py-4 cursor-normal ",
-                    tr: "text-[14px] text-gray-500 font-medium leading-[21px]",
+                    tr: "text-[14px] text-gray-500 font-medium leading-[21px] truncate",
                     td: "py-2 border-b border-gray-200",
-                    th: "!pr-0",
+                    th: "!pr-0 truncate",
                   }}
                   keyField="id"
                 />
@@ -261,7 +262,7 @@
         {#if loadingNotification}
           <div>loading ....</div>
         {:else}
-          <div>
+          <div class="hidden lg:block">
             <Notification {notifications} />
           </div>
         {/if}
@@ -271,13 +272,25 @@
           </Card>
         </div>
         <div>
-          <Card title="Underperforming Events" buttons={true} event={true} progress={true}>
+          <Card
+            title="Underperforming Events"
+            buttons={true}
+            event={true}
+            progress={true}
+          >
             <EventsProgress
               events={underperformingEvents}
               variant="underperforming"
             />
           </Card>
         </div>
+        {#if loadingNotification}
+          <div>loading ....</div>
+        {:else}
+          <div class="block lg:hidden">
+            <Notification {notifications} />
+          </div>
+        {/if}
       </div>
     </div>
   </div>

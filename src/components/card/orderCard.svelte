@@ -99,7 +99,7 @@
                                 <p class="text-xs text-gray-500 font-semibold">
                                     Sales Channel
                                 </p>
-                                <div class="flex gap-2">
+                                <div class="flex gap-2 items-center">
                                     <img src={event.channel.image} class="w-[20px] h-[20px]" alt="icon" />
                                     <p
                                         class="text-sm text-gray-500 font-normal break-words mt-1"

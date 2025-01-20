@@ -60,8 +60,8 @@
       {
         "id": 2,
         "seats": {
-          "current": 2,
-          "sale": 10
+          "current": 250,
+          "sale": 500
         },
         "eventName": {
           "name": "Adrenaline",
@@ -115,8 +115,8 @@
       {
         "id": 3,
         "seats": {
-          "current": 500,
-          "sale": 1023
+          "current": 150,
+          "sale": 889
         },
         "eventName": {
           "name": "The Reading Out of Your Noteboo",
@@ -170,8 +170,8 @@
       {
         "id": 4,
         "seats": {
-          "current": 2,
-          "sale": 10
+          "current": 875,
+          "sale": 1023
         },
         "eventName": {
           "name": "Mister Vape Face Dies on Stage",
@@ -226,8 +226,8 @@
       {
         "id": 5,
         "seats": {
-          "current": 8,
-          "sale": 10
+          "current": 240,
+          "sale": 500
         },
         "eventName": {
           "name": "The Nicole Show",

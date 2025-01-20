@@ -50,7 +50,7 @@ export async function GET() {
         {
           id: "5",
           profile_image: Avatar,
-          user_name: "Jest Quest",
+          user_name: "Jetpack Comedy",
           action_text: "Jetpack Comedy is sold out",
           status: "show sold out",
           message: "Ticket sales are now open",

@@ -52,27 +52,15 @@
     <Svg>
       <Axis
         placement="left"
-        grid
         format={(d) => `$${d.toLocaleString()}`}
-        stroke="#333"
-        gridStroke="#e2e8f0"
-        strokeWidth={1}
-        gridStrokeWidth={1}
-        baseline={true}
-        baselineStroke="#333"
-        baselineStrokeWidth={1}
+        rule
+        grid={{ stroke: "#E5E7EB", strokeWidth: "0.5px" }}
       />
       <Axis
         placement="bottom"
         format={(d) => formatDate(d, "MMM yyyy")}
         grid
-        stroke="#333"
-        gridStroke="#e2e8f0"
-        strokeWidth={1}
-        gridStrokeWidth={1}
-        baseline={true}
-        baselineStroke="#333"
-        baselineStrokeWidth={1}
+        rule
       />
       {#each dataByCategory as [category, data]}
         {@const color = cScale?.(category)}

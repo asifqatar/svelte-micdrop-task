@@ -17,7 +17,7 @@ export const upComingEventsTableColumn = [
           .toUpperCase();
   
         return `
-          <div class="flex flex-col pr-1">
+          <div class="flex flex-col pr-1 text-start">
             <div class="text-[10px] text-[#666C79] leading-[14px] font-normal">${day}</div>
             <div class="text-[#2563EB] text-[20px] font-[400] leading-[20px]">${date}</div>
             <div class="text-[10px] text-[#666C79] leading-[14px] font-normal">${month}</div>
@@ -44,7 +44,7 @@ export const upComingEventsTableColumn = [
           : '';
   
         return `
-          <div class="flex flex-row  gap-3 pr-40">
+          <div class="flex flex-row  gap-3 pr-28">
             <div class="flex flex-col gap-2">
               <span class="text-[14px] text-[#0D1526] leading-[14px] font-[400] max-w-40 truncate">
                 ${value.name}
