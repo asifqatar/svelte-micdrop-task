@@ -1,6 +1,6 @@
 <script>
-  import ArrowDown from "../../assets/svg/arrow-down.svg";
-  import ArrowUp from "../../assets/svg/arrow-up.svg";
+  import ArrowDown from "@/assets/svg/arrow-down.svg";
+  import ArrowUp from "@/assets/svg/arrow-up.svg";
 
   export let stats = [];
 </script>
@@ -9,7 +9,7 @@
   <div class="bg-white rounded-[16px] p-6 flex items-center justify-between stat">
     <div class="flex items-center">
       <div class="mr-3">
-        <img src={stat.icon} alt="" class="w-full h-full" />
+        <img src={stat.icon} alt="icon" class="w-full h-full" />
       </div>
       <div>
         <p class="text-[16px] font-normal text-[#666C79] leading-[16px]">{stat.name}</p>
@@ -27,7 +27,7 @@
         class="flex items-center"
         style="color: {stat.percentage > 10 ? '#0E9F6E' : '#F05252'}"
       >
-        <img src={stat.percentage > 10 ? ArrowUp : ArrowDown} alt="" />
+        <img src={stat.percentage > 10 ? ArrowUp : ArrowDown} alt="icon" />
         <h6 class="ml-1 text-lg font-semibold leading-[27px]">{Math.abs(stat.percentage)}%</h6>
       </div>
     {/if}
